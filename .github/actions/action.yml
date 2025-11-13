@@ -114,7 +114,6 @@ runs:
         else
           SUSFS_BRANCH="${{ inputs.susfs_commit_hash_or_branch }}"
         fi
-        echo "Using AnyKernel3 branch: $ANYKERNEL_BRANCH"
         echo "Using SUSFS branch: $SUSFS_BRANCH"
         git clone https://github.com/khalidaboelmagd/AnyKernel3
         git clone --depth=1 https://github.com/TheWildJames/kernel_patches.git
