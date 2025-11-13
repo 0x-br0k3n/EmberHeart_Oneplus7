@@ -138,7 +138,7 @@ runs:
         git submodule update --init --recursive
         cd KernelSU-Next
         KSUN_COMMIT_SHA=ce0ff7395188490934fb1b67446b6a351f22a2b4
-        git checkout $KSUN_COMMIT_SHA
+        # git checkout $KSUN_COMMIT_SHA
         echo "KSUN_COMMIT_SHA=$KSUN_COMMIT_SHA" >> $GITHUB_ENV
         cd ..
 
