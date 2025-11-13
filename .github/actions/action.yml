@@ -137,7 +137,8 @@ runs:
         fi
         git submodule update --init --recursive
         cd KernelSU-Next
-        KSUN_COMMIT_SHA=$(git rev-parse HEAD)
+        KSUN_COMMIT_SHA=ce0ff7395188490934fb1b67446b6a351f22a2b4
+        git checkout $KSUN_COMMIT_SHA
         echo "KSUN_COMMIT_SHA=$KSUN_COMMIT_SHA" >> $GITHUB_ENV
         cd ..
 
@@ -147,7 +148,7 @@ runs:
         set -euo pipefail
         cd "$CONFIG/kernel_platform/common"
         echo "Applying SUSFS patches..."
-        patch -p1 < ../../../my_patches/kernel_patches/backports/4.14/SuSFS_1.5.9_backport.patch
+        patch -p1 < ../../../my_patches/kernel_patches/backports/4.14/SuSFS_1.5.9_backport.patch || true
         
     - name: Apply KSUN Hooks
       shell: bash
