@@ -92,7 +92,7 @@ runs:
         echo "$FULL_VERSION" > "${OP_MODEL}.txt"
         echo "KERNEL_VER=$VERSION.$PATCHLEVEL" >> "$GITHUB_ENV"
         echo "KERNEL_FULL_VER=$FULL_VERSION" >> "$GITHUB_ENV"
-        echo "SUSFS_KERNEL_BRANCH=$VERSION.$PATCHLEVEL" >> "$GITHUB_ENV"
+        echo "SUSFS_KERNEL_BRANCH=kernel-$VERSION.$PATCHLEVEL" >> "$GITHUB_ENV"
 
     - name: Setup ccache
       uses: hendrikmuhs/ccache-action@v1.2.19
