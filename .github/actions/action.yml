@@ -109,7 +109,6 @@ runs:
       run: |
         set -euo pipefail
         echo "Cloning AnyKernel3 and other dependencies..."
-        echo "Using SUSFS branch: $SUSFS_BRANCH"
         git clone https://github.com/khalidaboelmagd/AnyKernel3
         git clone --depth=1 https://github.com/TheWildJames/kernel_patches.git
         git clone --depth=1 https://github.com/0x-br0k3n/kernel_patches.git my_patches
