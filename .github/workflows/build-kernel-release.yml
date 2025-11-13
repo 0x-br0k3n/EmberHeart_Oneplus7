@@ -36,7 +36,7 @@ on:
         description: 'Kernel uname'
         type: string
         default: 'EmberHeart'
-      kernel-4.14_susfs_branch_or_commit:
+      susfs_branch_or_commit:
         description: 'Enter SusFS Branch or commit hash for kernel-4.14'
         type: string
         default: ''
@@ -58,7 +58,7 @@ jobs:
         shell: bash
         run: |
           KERNEL_STRING="android9-4.14"
-          SUSFS_BRANCH="${{ inputs.kernel-4.14_susfs_branch_or_commit }}"
+          SUSFS_BRANCH="${{ inputs.susfs_branch_or_commit }}"
       
           echo "susfs_branch=$SUSFS_BRANCH" >> $GITHUB_OUTPUT
 
