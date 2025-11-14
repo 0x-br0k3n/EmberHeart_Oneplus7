@@ -52,6 +52,10 @@ runs:
           libelf-dev libssl-dev libncurses-dev zlib1g-dev liblz4-tool \
           libxml2-utils rsync unzip dwarves file python3
           
+        sudo apt install ccache clang-18 llvm-18 lld-18 \
+          gcc-aarch64-linux-gnu gcc-arm-linux-gnueabi \
+          binutils-aarch64-linux-gnu binutils \
+          
         sudo apt-get clean
         echo "::endgroup::"
 
