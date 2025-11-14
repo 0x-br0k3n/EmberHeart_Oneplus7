@@ -50,7 +50,7 @@ runs:
         sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
           git curl ca-certificates build-essential clang lld flex bison \
           libelf-dev libssl-dev libncurses-dev zlib1g-dev liblz4-tool \
-          libxml2-utils rsync unzip dwarves file python3 ccache             clang-18 llvm-18 lld-18 \
+          libxml2-utils rsync unzip dwarves file python3 ccache clang-18 llvm-18 lld-18 \
           gcc-aarch64-linux-gnu gcc-arm-linux-gnueabi \
           binutils-aarch64-linux-gnu binutils \
         sudo apt-get clean
