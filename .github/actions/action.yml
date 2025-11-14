@@ -363,6 +363,7 @@ runs:
         export CROSS_COMPILE_COMPAT=arm-linux-androideabi-
         export LD=ld.lld HOSTLD=ld.lld AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip HOSTCC=clang HOSTCXX=clang++
         export CC=ccache clang
+        export CLANG_TRIPLE=aarch64-linux-gnu-
         OUT=out
         mkdir -p "$OUT"
         make O="$OUT" lineage_sm8150_defconfig
