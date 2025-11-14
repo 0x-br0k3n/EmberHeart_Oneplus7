@@ -50,7 +50,9 @@ runs:
         sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
           git curl ca-certificates build-essential clang lld flex bison \
           libelf-dev libssl-dev libncurses-dev zlib1g-dev liblz4-tool \
-          libxml2-utils rsync unzip dwarves file python3 ccache
+          libxml2-utils rsync unzip dwarves file python3 ccache             clang-18 llvm-18 lld-18 \
+          gcc-aarch64-linux-gnu gcc-arm-linux-gnueabi \
+          binutils-aarch64-linux-gnu binutils \
         sudo apt-get clean
         echo "::endgroup::"
 
@@ -348,20 +350,23 @@ runs:
         echo "::group::Build kernel"
         KERNEL_PATH="$GITHUB_WORKSPACE/$CONFIG/kernel_platform"
         COMMON="$KERNEL_PATH/common"
+        
+        cd "$GITHUB_WORKSPACE"
+        
         cd "$COMMON"
         
         # Ensure Python warnings are suppressed for scripts invoked by make
         export PYTHONWARNINGS="${PYTHONWARNINGS}"
         
-        export PATH=$GITHUB_WORKSPACE/toolchain/bin:/usr/lib/llvm-14/bin:$PATH
+        export PATH=/usr/lib/llvm-18/bin:$PATH
         
         export PATH="/usr/lib/ccache:$PATH"
         
-        
+        export LLVM=1 LLVM_IAS=1
         export ARCH=arm64 SUBARCH=arm64
-        export CROSS_COMPILE=aarch64-linux-android-
-        export CROSS_COMPILE_COMPAT=arm-linux-androideabi-
-        export HOSTCC=clang HOSTCXX=clang++
+        export CROSS_COMPILE=aarch64-linux-gnu-
+        export CROSS_COMPILE_ARM32=arm-linux-gnueabi-
+        export HOSTCC=clang-18 HOSTCXX=clang++-18
         export CC=ccache clang
         export CLANG_TRIPLE=aarch64-linux-gnu-
         OUT=out
